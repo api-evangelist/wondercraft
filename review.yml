@@ -1,0 +1,63 @@
+aid: wondercraft
+name: Wondercraft
+review:
+  question: Does Wondercraft expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. The Wondercraft Public API is a synchronous
+    REST API for submitting asynchronous generation jobs and polling their status
+    by HTTP GET. There is no Server-Sent Events (SSE) stream and no WebSocket
+    surface to model. Asynchrony is handled by client-side polling of
+    GET /podcast/{job_id}, not by an event-driven transport.
+findings:
+  summary: |
+    Wondercraft does not publish a documented public WebSocket API. The
+    Wondercraft Public API (https://api.wondercraft.ai/v1) is REST over HTTPS,
+    authenticated with the X-API-KEY header. Audio generation is asynchronous but
+    delivered through a request/poll pattern: a POST returns a job_id and the
+    client polls GET /podcast/{job_id} until finished is true and an MP3 url is
+    returned. No realtime, bidirectional, or streaming WebSocket (ws:// or wss://)
+    endpoint is documented for audio generation, job status, or any other product
+    surface as of the review date.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.wondercraft.ai/v1
+      documented: true
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events stream is documented; job completion is discovered by polling GET /podcast/{job_id}.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Wondercraft's API reference, quickstart, or OpenAPI specification as of the review date.
+  endpointsConfirmedRest:
+    - POST https://api.wondercraft.ai/v1/podcast
+    - POST https://api.wondercraft.ai/v1/podcast/scripted
+    - POST https://api.wondercraft.ai/v1/podcast/convo-mode/ai-scripted
+    - POST https://api.wondercraft.ai/v1/podcast/convo-mode/user-scripted
+    - GET  https://api.wondercraft.ai/v1/podcast/{job_id}
+    - GET  https://api.wondercraft.ai/v1/podcasts
+    - GET  https://api.wondercraft.ai/v1/verify
+sources:
+  - url: https://docs.wondercraft.ai/api-reference/introduction
+    type: APIReference
+    note: Introduction documents the REST base URL and X-API-KEY auth; no WebSocket mentioned.
+  - url: https://docs.wondercraft.ai/quickstart
+    type: Documentation
+    note: Quickstart shows POST to create jobs and GET polling for status; no streaming transport.
+  - url: https://docs.wondercraft.ai/api-reference/openapi.json
+    type: OpenAPI
+    note: OpenAPI 3.x spec lists only HTTPS REST paths; security scheme is apiKey in header (X-API-KEY).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE protocol surface exists. The API is REST with
+    client-side polling for asynchronous jobs, so no AsyncAPI document was
+    authored. apis.yml documents the REST surface and links the OpenAPI
+    specification.

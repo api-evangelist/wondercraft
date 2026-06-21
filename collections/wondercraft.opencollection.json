@@ -1,0 +1,144 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wondercraft Public API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "X-API-KEY",
+        "value": "{{apiKey}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audio Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create any audio content with an AI-generated script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"prompt\": \"Generate a short podcast episode about the history of radio.\",\n  \"voice_ids\": [],\n  \"music_spec\": null\n}"
+            }
+          },
+          "docs": "Generates audio content from a natural-language prompt with an AI-written script. Returns a job_id."
+        },
+        {
+          "info": {
+            "name": "Create any audio content with a user-provided script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast/scripted",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"script\": [\n    { \"text\": \"Welcome to the show.\", \"voice_id\": \"<voice_id>\" }\n  ],\n  \"music_spec\": null\n}"
+            }
+          },
+          "docs": "Generates audio from a user-provided script of ordered text/voice_id segments. Returns a job_id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Convo Mode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate AI-scripted podcast with 2 hosts using Convo Mode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast/convo-mode/ai-scripted",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"prompt\": \"Two hosts discuss the future of AI audio.\",\n  \"voice_ids\": [\"<voice_id_1>\", \"<voice_id_2>\"],\n  \"delivery_instructions\": null,\n  \"music_spec\": null\n}"
+            }
+          },
+          "docs": "Generates a two-host conversational podcast from a prompt. Requires exactly two voice IDs. Returns a job_id."
+        },
+        {
+          "info": {
+            "name": "Generate podcast with 2 hosts using Convo Mode and a user-provided script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast/convo-mode/user-scripted",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"script\": [\n    { \"text\": \"Hi everyone.\", \"voice_id\": \"<voice_id_1>\" },\n    { \"text\": \"Great to be here.\", \"voice_id\": \"<voice_id_2>\" }\n  ],\n  \"delivery_instructions\": null,\n  \"music_spec\": null\n}"
+            }
+          },
+          "docs": "Generates a two-host conversational podcast from a user-provided script. Returns a job_id."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get audio content result and status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wondercraft.ai/v1/podcast/{job_id}"
+          },
+          "docs": "Retrieves job status. When finished, returns the generated script and an MP3 download URL."
+        },
+        {
+          "info": {
+            "name": "Get podcasts for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wondercraft.ai/v1/podcasts"
+          },
+          "docs": "Returns the podcasts associated with the authenticated API key."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify API key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wondercraft.ai/v1/verify"
+          },
+          "docs": "Verifies the supplied API key and returns the associated account email."
+        }
+      ]
+    }
+  ]
+}

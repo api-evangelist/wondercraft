@@ -1,0 +1,52 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Wondercraft
+providerId: wondercraft
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- AI
+- Audio
+- Podcast
+- Generative Audio
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Wondercraft Public API enforces a concurrency limit on asynchronous audio
+  generation jobs. Submitting more than 5 jobs that are in progress at the same
+  time returns HTTP 429. Generation is otherwise gated by the account's monthly
+  credit allowance rather than by a published requests-per-minute throttle.
+  Invalid requests return HTTP 422.
+notes: >-
+  The documented concurrency limit is 5 in-flight jobs. No public per-minute or
+  per-day request-rate values are documented; account credit balance is the
+  primary usage gate. The API is under active development and limits may change.
+sources:
+- https://docs.wondercraft.ai/quickstart
+- https://docs.wondercraft.ai/api-reference/introduction
+- https://www.wondercraft.ai/pricing
+responseCodes:
+  throttled: 429
+  validation: 422
+limits:
+- name: Concurrent Jobs
+  scope: account
+  metric: jobs
+  limit: 5
+  notes: More than 5 simultaneous in-progress generation jobs returns HTTP 429.
+- name: Monthly Credits
+  scope: account
+  metric: credits
+  limit: see plan
+  notes: Generation draws down the plan's monthly credit allowance; see plans/wondercraft-plans-pricing.yml.
+policies:
+- name: Concurrency Limit
+  description: Keep no more than 5 generation jobs in progress at once; queue additional work client-side.
+- name: Backoff Strategy
+  description: On HTTP 429, back off and retry once an in-flight job completes; poll job status before submitting more.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,131 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Wondercraft
+providerId: wondercraft
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- AI
+- Audio
+- Podcast
+- Text to Speech
+- Generative Audio
+- Plans
+description: >-
+  Wondercraft uses a subscription model metered in credits. Plans are billed
+  monthly or annually and grant a monthly credit allowance that is consumed by
+  audio and video generation. API access is gated to paid plans: the Free plan
+  has no API access, while Creator, Pro, and Enterprise include it. Credits, not
+  per-call API metering, are the unit of consumption; the API draws down the same
+  plan credit balance as the platform.
+notes: >-
+  Prices and credit allowances reflect the Wondercraft pricing page and may
+  change. Annual billing is discounted relative to monthly. Pro credit tiers and
+  add-on credit packs vary; confirm current values on the pricing page during
+  reconciliation.
+sources:
+- https://www.wondercraft.ai/pricing
+- https://docs.wondercraft.ai/quickstart
+plans:
+- id: wondercraft-free
+  name: Free
+  type: free
+  description: >-
+    Entry-level plan with limited model access and no API access. Includes a
+    watermark and capped export quality.
+  entries:
+  - label: Monthly Credits
+    name: credits
+    type: free
+    metric: credits
+    limit: 150
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  elements:
+  - name: Limited Model Access
+  - name: Video Editing
+  - name: Up to 720p Export
+  - name: No API Access
+- id: wondercraft-creator
+  name: Creator
+  type: paid
+  description: >-
+    Paid plan for individual creators with commercial rights, premium models,
+    and API access.
+  entries:
+  - label: Monthly Credits
+    name: credits
+    type: usage
+    metric: credits
+    limit: 1000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $21/mo billed annually, $25/mo billed monthly
+    userMultiplied: false
+  elements:
+  - name: API Access
+  - name: No Watermark
+  - name: Commercial Rights
+  - name: Premium Models
+  - name: 1 Custom AI Character
+  - name: Full Asset Library
+- id: wondercraft-pro
+  name: Pro
+  type: paid
+  description: >-
+    Team plan with collaboration, advanced editing, unlimited custom characters,
+    higher credit allowances, and API access.
+  entries:
+  - label: Monthly Credits
+    name: credits
+    type: usage
+    metric: credits
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: from $45/mo (credit tiers of 2,000-6,000); annual pricing offers ~2 months off
+    userMultiplied: false
+  elements:
+  - name: API Access
+  - name: Team Collaboration (up to 3 users)
+  - name: Advanced Editing
+  - name: Unlimited Custom Characters
+  - name: 4K Upscaling
+  - name: Concurrent AI Video Generation
+  - name: Custom Branded Share Pages
+- id: wondercraft-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom plan with SLA/DPA, indemnity, security compliance, user-level
+    permissions, onboarding, and a dedicated account manager. Includes API access.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: API Access
+  - name: Custom Credit Allocation
+  - name: SLA and DPA
+  - name: Indemnity Protection
+  - name: Custom Security Compliance
+  - name: User-Level Permissions
+  - name: Onboarding and Training
+  - name: Dedicated Account Manager
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
