@@ -1,0 +1,15 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/wondercraft-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: APIKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-API-KEY
+  sources:
+  - openapi/wondercraft-openapi.yml

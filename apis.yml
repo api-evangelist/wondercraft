@@ -112,6 +112,12 @@ apis:
     the generated script, the MP3 download URL, and any error details. Also lists a
     user's podcasts and verifies an API key.
 common:
+- type: DomainSecurity
+  url: security/wondercraft-domain-security.yml
+- type: Authentication
+  url: authentication/wondercraft-authentication.yml
+- url: https://wondercraft.ai/blog
+  type: Blog
 - type: LinkedIn
   url: https://www.linkedin.com/company/wondercraftai
 - type: Website
