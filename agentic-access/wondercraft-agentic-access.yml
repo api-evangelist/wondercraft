@@ -1,0 +1,110 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/wondercraft-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 7
+  by_action_class:
+    acting: 4
+    connected: 3
+  by_consequence:
+    write: 4
+    read: 3
+  human_in_the_loop_required: 0
+operations:
+- path: /podcast
+  method: post
+  operationId: generate_ai_scripted_episode_podcast_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /podcast/scripted
+  method: post
+  operationId: generate_user_scripted_episode_podcast_scripted_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /podcast/convo-mode/ai-scripted
+  method: post
+  operationId: generate_ai_scripted_convo_mode_episode_podcast_convo_mode_ai_scripted_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /podcast/convo-mode/user-scripted
+  method: post
+  operationId: generate_user_scripted_convo_mode_episode_podcast_convo_mode_user_scripted_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /podcast/{job_id}
+  method: get
+  operationId: get_episode_status_podcast__job_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /podcasts
+  method: get
+  operationId: get_podcasts_for_user_podcasts_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /verify
+  method: get
+  operationId: verify_key_verify_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

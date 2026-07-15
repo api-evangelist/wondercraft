@@ -112,6 +112,8 @@ apis:
     the generated script, the MP3 download URL, and any error details. Also lists a
     user's podcasts and verifies an API key.
 common:
+- type: AgenticAccess
+  url: agentic-access/wondercraft-agentic-access.yml
 - type: DomainSecurity
   url: security/wondercraft-domain-security.yml
 - type: Authentication
