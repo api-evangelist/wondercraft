@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: Wondercraft Public Account API
+  description: 'The Wondercraft Public API creates audio content - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script. Generation is asynchronous: a create request returns a job_id, which is then polled for completion and an MP3 download URL. Voices and background music are referenced by IDs copied from the Wondercraft platform. API access requires a paid plan.'
+  termsOfService: https://www.wondercraft.ai/terms
+  contact:
+    name: Wondercraft Support
+    url: https://support.wondercraft.ai/
+  version: 0.0.1
+servers:
+- url: https://api.wondercraft.ai/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Account
+paths:
+  /verify:
+    get:
+      operationId: verify_key_verify_get
+      tags:
+      - Account
+      summary: Verify API key
+      description: Verifies the supplied API key and returns the associated account email.
+      responses:
+        '200':
+          description: Key is valid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyResponse'
+components:
+  schemas:
+    VerifyResponse:
+      type: object
+      required:
+      - status
+      - email
+      properties:
+        status:
+          type: string
+          enum:
+          - ok
+        email:
+          type: string
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-KEY

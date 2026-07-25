@@ -1,0 +1,107 @@
+openapi: 3.0.1
+info:
+  title: Wondercraft Public Account Jobs API
+  description: 'The Wondercraft Public API creates audio content - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script. Generation is asynchronous: a create request returns a job_id, which is then polled for completion and an MP3 download URL. Voices and background music are referenced by IDs copied from the Wondercraft platform. API access requires a paid plan.'
+  termsOfService: https://www.wondercraft.ai/terms
+  contact:
+    name: Wondercraft Support
+    url: https://support.wondercraft.ai/
+  version: 0.0.1
+servers:
+- url: https://api.wondercraft.ai/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Jobs
+paths:
+  /podcast/{job_id}:
+    get:
+      operationId: get_episode_status_podcast__job_id__get
+      tags:
+      - Jobs
+      summary: Get audio content result and status
+      description: Retrieves the status of an audio generation job. When finished, returns the generated script and an MP3 download URL. Errors are reported via the error and error_details fields.
+      parameters:
+      - name: job_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: The job_id returned by a generate request.
+      responses:
+        '200':
+          description: Job status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetEpisodeStatusResponse'
+        '422':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /podcasts:
+    get:
+      operationId: get_podcasts_for_user_podcasts_get
+      tags:
+      - Jobs
+      summary: Get podcasts for the authenticated user
+      description: Returns the podcasts associated with the authenticated API key.
+      responses:
+        '200':
+          description: List of podcasts for the user.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    GetEpisodeStatusResponse:
+      type: object
+      required:
+      - finished
+      properties:
+        finished:
+          type: boolean
+          description: Whether the job has completed.
+        script:
+          type: string
+          description: The generated script, when available.
+        url:
+          type: string
+          description: Download URL for the finished MP3, when available.
+        error:
+          type: boolean
+          description: Whether the job failed.
+        error_details:
+          type: string
+          description: Details about the failure, when present.
+    ValidationError:
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      properties:
+        loc:
+          type: array
+          items:
+            type: string
+        msg:
+          type: string
+        type:
+          type: string
+    HTTPValidationError:
+      type: object
+      properties:
+        detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-KEY

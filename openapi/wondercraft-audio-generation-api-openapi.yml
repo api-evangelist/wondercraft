@@ -1,0 +1,177 @@
+openapi: 3.0.1
+info:
+  title: Wondercraft Public Account Audio Generation API
+  description: 'The Wondercraft Public API creates audio content - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script. Generation is asynchronous: a create request returns a job_id, which is then polled for completion and an MP3 download URL. Voices and background music are referenced by IDs copied from the Wondercraft platform. API access requires a paid plan.'
+  termsOfService: https://www.wondercraft.ai/terms
+  contact:
+    name: Wondercraft Support
+    url: https://support.wondercraft.ai/
+  version: 0.0.1
+servers:
+- url: https://api.wondercraft.ai/v1
+security:
+- APIKeyHeader: []
+tags:
+- name: Audio Generation
+paths:
+  /podcast:
+    post:
+      operationId: generate_ai_scripted_episode_podcast_post
+      tags:
+      - Audio Generation
+      summary: Create any audio content with an AI-generated script
+      description: Generates audio content from a natural-language prompt. Wondercraft writes the script and synthesizes the audio. Optionally accepts voice IDs and a background music spec. Returns a job_id to poll for status.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateAiScriptedEpisodeRequest'
+      responses:
+        '200':
+          description: Job accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateEpisodeResponse'
+        '422':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '429':
+          description: Too many concurrent jobs (limit is 5).
+  /podcast/scripted:
+    post:
+      operationId: generate_user_scripted_episode_podcast_scripted_post
+      tags:
+      - Audio Generation
+      summary: Create any audio content with a user-provided script
+      description: Generates audio from a user-provided script of ordered segments, each pairing text with a Wondercraft voice ID. Optionally accepts a background music spec. Returns a job_id to poll for status.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateUserScriptedEpisodeRequest'
+      responses:
+        '200':
+          description: Job accepted.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateEpisodeResponse'
+        '422':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '429':
+          description: Too many concurrent jobs (limit is 5).
+components:
+  schemas:
+    ValidationError:
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      properties:
+        loc:
+          type: array
+          items:
+            type: string
+        msg:
+          type: string
+        type:
+          type: string
+    GenerateEpisodeResponse:
+      type: object
+      required:
+      - job_id
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          description: Identifier used to poll job status.
+    GenerateUserScriptedEpisodeRequest:
+      type: object
+      required:
+      - script
+      properties:
+        script:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScriptSegment'
+          description: Ordered list of script segments.
+        music_spec:
+          $ref: '#/components/schemas/MusicTrackSpec'
+    MusicTrackSpec:
+      type: object
+      additionalProperties: false
+      required:
+      - music_id
+      properties:
+        music_id:
+          type: string
+          description: The ID of the music track to use in the background.
+        fade_in_ms:
+          type: integer
+          default: 0
+        fade_out_ms:
+          type: integer
+          default: 0
+        playback_start:
+          type: integer
+          default: 0
+        playback_end:
+          type: integer
+          nullable: true
+        volume:
+          type: number
+          default: 0.05
+        loop:
+          type: boolean
+          default: false
+    GenerateAiScriptedEpisodeRequest:
+      type: object
+      required:
+      - prompt
+      properties:
+        prompt:
+          type: string
+          description: Natural-language description of the audio content to generate.
+        voice_ids:
+          type: array
+          items:
+            type: string
+          description: Optional Wondercraft voice IDs to use.
+        music_spec:
+          $ref: '#/components/schemas/MusicTrackSpec'
+    HTTPValidationError:
+      type: object
+      properties:
+        detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ScriptSegment:
+      type: object
+      additionalProperties: false
+      required:
+      - text
+      - voice_id
+      properties:
+        text:
+          type: string
+          description: The text to be spoken for this part of the dialogue.
+        voice_id:
+          type: string
+          description: A unique identifier for the voice, copied from the Wondercraft platform.
+  securitySchemes:
+    APIKeyHeader:
+      type: apiKey
+      in: header
+      name: X-API-KEY
