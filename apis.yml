@@ -7,7 +7,20 @@ description: Wondercraft is an AI audio creation platform for producing podcasts
   an AI-written or user-supplied script, supports a two-host Convo Mode, lets callers
   attach platform voices and background music by ID, and exposes asynchronous jobs
   that are polled for status and a finished MP3 download URL.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/wondercraft.png
 tags:
 - AI
 - Audio
@@ -18,99 +31,110 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: wondercraft:audio-generation-api
-  name: Wondercraft Audio Generation API
-  tags:
-  - Audio
-  - Podcast
-  - Text to Speech
-  - Jobs
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: wondercraft:wondercraft-account-api
+  name: Wondercraft Account API
+  description: The Account API from Wondercraft — 1 operation(s) for account.
   humanURL: https://docs.wondercraft.ai/api-reference/introduction
   baseURL: https://api.wondercraft.ai/v1
-  properties:
-  - url: https://docs.wondercraft.ai/quickstart
-    type: Documentation
-  - url: https://docs.wondercraft.ai/api-reference/endpoint/generate_podcast
-    type: APIReference
-  - url: openapi/wondercraft-openapi.yml
-    type: OpenAPI
-  - url: collections/wondercraft.postman_collection.json
-    type: PostmanCollection
-  - url: collections/wondercraft.opencollection.json
-    type: OpenCollection
-  description: Creates podcasts, audio ads, meditations, and audiobooks from a natural-language
-    prompt using an AI-generated script. Optionally accepts platform voice IDs and a
-    background music spec, and returns an asynchronous job_id.
-- aid: wondercraft:scripted-audio-api
-  name: Wondercraft Scripted Audio API
   tags:
-  - Audio
-  - Script
-  - Voices
-  - Music
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.wondercraft.ai/api-reference/endpoint/user_scripted
-  baseURL: https://api.wondercraft.ai/v1
+  - Account
   properties:
-  - url: https://docs.wondercraft.ai/quickstart
-    type: Documentation
-  - url: https://docs.wondercraft.ai/api-reference/endpoint/user_scripted
-    type: APIReference
-  - url: openapi/wondercraft-openapi.yml
-    type: OpenAPI
-  - url: collections/wondercraft.postman_collection.json
-    type: PostmanCollection
-  - url: collections/wondercraft.opencollection.json
-    type: OpenCollection
-  description: Generates audio from a user-provided script of ordered segments, each
-    pairing text with a Wondercraft voice ID, with an optional background music track
-    spec referencing a platform music ID.
-- aid: wondercraft:convo-mode-api
+  - type: OpenAPI
+    url: openapi/wondercraft-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wondercraft.ai/quickstart
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/generate_podcast
+  - type: PostmanCollection
+    url: collections/wondercraft.postman_collection.json
+  - type: OpenCollection
+    url: collections/wondercraft.opencollection.json
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
+- aid: wondercraft:wondercraft-audio-generation-api
+  name: Wondercraft Audio Generation API
+  description: The Audio Generation API from Wondercraft — 2 operation(s) for audio generation.
+  humanURL: https://docs.wondercraft.ai/api-reference/introduction
+  baseURL: https://api.wondercraft.ai/v1
+  tags:
+  - Audio Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/wondercraft-audio-generation-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wondercraft.ai/quickstart
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/generate_podcast
+  - type: PostmanCollection
+    url: collections/wondercraft.postman_collection.json
+  - type: OpenCollection
+    url: collections/wondercraft.opencollection.json
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
+- aid: wondercraft:wondercraft-convo-mode-api
   name: Wondercraft Convo Mode API
-  tags:
-  - Audio
-  - Podcast
-  - Two Host
-  - Conversation
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted
+  description: The Convo Mode API from Wondercraft — 2 operation(s) for convo mode.
+  humanURL: https://docs.wondercraft.ai/api-reference/introduction
   baseURL: https://api.wondercraft.ai/v1
+  tags:
+  - Convo Mode
   properties:
-  - url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted
-    type: APIReference
-  - url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_user_scripted
-    type: APIReference
-  - url: openapi/wondercraft-openapi.yml
-    type: OpenAPI
-  - url: collections/wondercraft.postman_collection.json
-    type: PostmanCollection
-  - url: collections/wondercraft.opencollection.json
-    type: OpenCollection
-  description: Generates two-host conversational podcasts from either an AI prompt or a
-    user-provided script, taking exactly two voice IDs plus optional delivery
-    instructions and a background music spec.
-- aid: wondercraft:job-status-api
-  name: Wondercraft Job Status API
+  - type: OpenAPI
+    url: openapi/wondercraft-convo-mode-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wondercraft.ai/quickstart
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/generate_podcast
+  - type: PostmanCollection
+    url: collections/wondercraft.postman_collection.json
+  - type: OpenCollection
+    url: collections/wondercraft.opencollection.json
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
+- aid: wondercraft:wondercraft-jobs-api
+  name: Wondercraft Jobs API
+  description: The Jobs API from Wondercraft — 2 operation(s) for jobs.
+  humanURL: https://docs.wondercraft.ai/api-reference/introduction
+  baseURL: https://api.wondercraft.ai/v1
   tags:
   - Jobs
-  - Async
-  - Status
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
-  baseURL: https://api.wondercraft.ai/v1
   properties:
-  - url: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
-    type: APIReference
-  - url: openapi/wondercraft-openapi.yml
-    type: OpenAPI
-  - url: collections/wondercraft.postman_collection.json
-    type: PostmanCollection
-  - url: collections/wondercraft.opencollection.json
-    type: OpenCollection
-  description: Polls an audio generation job by job_id, returning whether it is finished,
-    the generated script, the MP3 download URL, and any error details. Also lists a
-    user's podcasts and verifies an API key.
+  - type: OpenAPI
+    url: openapi/wondercraft-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.wondercraft.ai/quickstart
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/generate_podcast
+  - type: PostmanCollection
+    url: collections/wondercraft.postman_collection.json
+  - type: OpenCollection
+    url: collections/wondercraft.opencollection.json
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_user_scripted
+  - type: APIReference
+    url: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
 common:
 - type: AgenticAccess
   url: agentic-access/wondercraft-agentic-access.yml
