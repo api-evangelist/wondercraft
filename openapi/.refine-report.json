@@ -1,0 +1,20 @@
+{
+  "provider": "wondercraft",
+  "sources": [
+    "wondercraft-account-api-openapi.yml",
+    "wondercraft-audio-generation-api-openapi.yml",
+    "wondercraft-convo-mode-api-openapi.yml",
+    "wondercraft-jobs-api-openapi.yml"
+  ],
+  "outputs": [
+    "wondercraft-account-api-openapi.yml",
+    "wondercraft-audio-generation-api-openapi.yml",
+    "wondercraft-convo-mode-api-openapi.yml",
+    "wondercraft-jobs-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
