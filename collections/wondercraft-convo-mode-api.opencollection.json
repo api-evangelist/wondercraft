@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wondercraft Public Account Convo Mode API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Convo Mode",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate AI-scripted podcast with 2 hosts using Convo Mode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast/convo-mode/ai-scripted",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a two-host conversational podcast from a natural-language prompt. Requires exactly two voice IDs and accepts optional delivery instructions and a background music spec. Returns a job_id to poll for status."
+        },
+        {
+          "info": {
+            "name": "Generate podcast with 2 hosts using Convo Mode and a user-provided script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast/convo-mode/user-scripted",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a two-host conversational podcast from a user-provided script of ordered segments. Accepts optional delivery instructions and a background music spec. Returns a job_id to poll for status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

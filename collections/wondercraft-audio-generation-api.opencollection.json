@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wondercraft Public Account Audio Generation API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Audio Generation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create any audio content with an AI-generated script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates audio content from a natural-language prompt. Wondercraft writes the script and synthesizes the audio. Optionally accepts voice IDs and a background music spec. Returns a job_id to poll for status."
+        },
+        {
+          "info": {
+            "name": "Create any audio content with a user-provided script",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wondercraft.ai/v1/podcast/scripted",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates audio from a user-provided script of ordered segments, each pairing text with a Wondercraft voice ID. Optionally accepts a background music spec. Returns a job_id to poll for status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

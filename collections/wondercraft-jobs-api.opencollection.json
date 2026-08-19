@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wondercraft Public Account Jobs API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get audio content result and status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wondercraft.ai/v1/podcast/:job_id",
+            "params": [
+              {
+                "name": "job_id",
+                "value": "",
+                "type": "path",
+                "description": "The job_id returned by a generate request."
+              }
+            ]
+          },
+          "docs": "Retrieves the status of an audio generation job. When finished, returns the generated script and an MP3 download URL. Errors are reported via the error and error_details fields."
+        },
+        {
+          "info": {
+            "name": "Get podcasts for the authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wondercraft.ai/v1/podcasts"
+          },
+          "docs": "Returns the podcasts associated with the authenticated API key."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

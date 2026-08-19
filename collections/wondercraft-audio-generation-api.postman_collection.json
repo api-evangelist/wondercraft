@@ -1,0 +1,447 @@
+{
+  "item": [
+    {
+      "id": "a489f0d5-aea8-4d39-a07b-99b51ab40743",
+      "name": "Audio Generation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48d6805f-9dac-44bf-b96f-4d997b4b7813",
+          "name": "Create any audio content with an AI-generated script",
+          "request": {
+            "name": "Create any audio content with an AI-generated script",
+            "description": {
+              "content": "Generates audio content from a natural-language prompt. Wondercraft writes the script and synthesizes the audio. Optionally accepts voice IDs and a background music spec. Returns a job_id to poll for status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcast"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "11357cd7-3fc0-40b5-8532-4abdff196a78",
+              "name": "Job accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"b526e3f2-ee2c-01fd-ca6b-c5e87542517b\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5eb4eecd-a69c-4651-9d42-bd9f4601cc53",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3288906f-4a09-4d91-9a32-ec5063b75245",
+              "name": "Too many concurrent jobs (limit is 5).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d592c396-0ed3-4082-8b50-31b8c4ebd5e2",
+          "name": "Create any audio content with a user-provided script",
+          "request": {
+            "name": "Create any audio content with a user-provided script",
+            "description": {
+              "content": "Generates audio from a user-provided script of ordered segments, each pairing text with a Wondercraft voice ID. Optionally accepts a background music spec. Returns a job_id to poll for status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcast",
+                "scripted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ccccb69f-889b-460e-9cc5-f1fcc3147b2f",
+              "name": "Job accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"b526e3f2-ee2c-01fd-ca6b-c5e87542517b\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29ccc887-2a8d-4af9-85c6-5e11c6b1fefe",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62790929-a588-4472-8689-447293ee2ea9",
+              "name": "Too many concurrent jobs (limit is 5).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wondercraft.ai/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "93a626e6-193c-4717-ac0e-6c703eac630e",
+    "name": "Wondercraft Public Account Audio Generation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wondercraft Public API creates audio content - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script. Generation is asynchronous: a create request returns a job_id, which is then polled for completion and an MP3 download URL. Voices and background music are referenced by IDs copied from the Wondercraft platform. API access requires a paid plan.\n\nContact Support:\n Name: Wondercraft Support",
+      "type": "text/plain"
+    }
+  }
+}

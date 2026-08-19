@@ -1,0 +1,459 @@
+{
+  "item": [
+    {
+      "id": "a4dafc62-2ea6-4204-bda4-d1babda9c119",
+      "name": "Convo Mode",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67be66ad-77ad-4bf2-9169-37ea1232643a",
+          "name": "Generate AI-scripted podcast with 2 hosts using Convo Mode",
+          "request": {
+            "name": "Generate AI-scripted podcast with 2 hosts using Convo Mode",
+            "description": {
+              "content": "Generates a two-host conversational podcast from a natural-language prompt. Requires exactly two voice IDs and accepts optional delivery instructions and a background music spec. Returns a job_id to poll for status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcast",
+                "convo-mode",
+                "ai-scripted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa00f271-d386-422b-9f43-8ac86ed42f0b",
+              "name": "Job accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "convo-mode",
+                    "ai-scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"23ef1fed-4f55-5eb9-93dd-d6491f0a3849\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6bd27ef3-0a31-404d-a65d-58b55fef187b",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "convo-mode",
+                    "ai-scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d748bb6f-d255-4400-818a-c55995f9d970",
+              "name": "Too many concurrent jobs (limit is 5).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "convo-mode",
+                    "ai-scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"voice_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0ab830c-2db6-4364-80ae-bccdc21a43cf",
+          "name": "Generate podcast with 2 hosts using Convo Mode and a user-provided script",
+          "request": {
+            "name": "Generate podcast with 2 hosts using Convo Mode and a user-provided script",
+            "description": {
+              "content": "Generates a two-host conversational podcast from a user-provided script of ordered segments. Accepts optional delivery instructions and a background music spec. Returns a job_id to poll for status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "podcast",
+                "convo-mode",
+                "user-scripted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80a2169d-95fc-4276-947b-db55a5e08564",
+              "name": "Job accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "convo-mode",
+                    "user-scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"job_id\": \"23ef1fed-4f55-5eb9-93dd-d6491f0a3849\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28ef2a99-03ee-415f-999a-836103607fed",
+              "name": "Validation error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "convo-mode",
+                    "user-scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e30f3491-2277-446c-b333-72b5a3641731",
+              "name": "Too many concurrent jobs (limit is 5).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "podcast",
+                    "convo-mode",
+                    "user-scripted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"script\": [\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    },\n    {\n      \"text\": \"<string>\",\n      \"voice_id\": \"<string>\"\n    }\n  ],\n  \"delivery_instructions\": \"<string>\",\n  \"music_spec\": {\n    \"music_id\": \"<string>\",\n    \"fade_in_ms\": 0,\n    \"fade_out_ms\": 0,\n    \"playback_start\": 0,\n    \"playback_end\": \"<integer>\",\n    \"volume\": 0.05,\n    \"loop\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wondercraft.ai/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "401d62f5-7c8a-429c-b7d6-d73ce3fccbea",
+    "name": "Wondercraft Public Account Convo Mode API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Wondercraft Public API creates audio content - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script. Generation is asynchronous: a create request returns a job_id, which is then polled for completion and an MP3 download URL. Voices and background music are referenced by IDs copied from the Wondercraft platform. API access requires a paid plan.\n\nContact Support:\n Name: Wondercraft Support",
+      "type": "text/plain"
+    }
+  }
+}
