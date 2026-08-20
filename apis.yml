@@ -22,6 +22,12 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/wondercraft.png
 tags:
+- Artificial Intelligence
+- Audio
+- Podcast
+- Text-to-Speech
+- Generative Audio
+tags_raw:
 - AI
 - Audio
 - Podcast
@@ -115,6 +121,8 @@ apis:
   humanURL: https://docs.wondercraft.ai/api-reference/introduction
   baseURL: https://api.wondercraft.ai/v1
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
