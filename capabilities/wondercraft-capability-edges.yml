@@ -1,0 +1,36 @@
+slug: wondercraft
+provider: Wondercraft
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Audio Generation
+  spec_file: wondercraft-audio-generation-api-openapi.yml
+  capability_id: BC-3700
+  capability_id_l1: BC-3700
+  capability_name: Content Origination & Production Management
+  confidence: 0.8
+  evidence: '"Create any audio content with an AI-generated script"; description: "creates audio content
+    - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script"'
+  reason: The operations produce finished audio content (MP3 masters) from scripts, i.e. origination/production
+    of audio content. Which sub-capability (studio production vs post-production finishing) is ambiguous
+    for an AI generation pipeline, so only the L1 is asserted.
+- tag: Convo Mode
+  spec_file: wondercraft-convo-mode-api-openapi.yml
+  capability_id: BC-3700
+  capability_id_l1: BC-3700
+  capability_name: Content Origination & Production Management
+  confidence: 0.8
+  evidence: '"Generate AI-scripted podcast with 2 hosts using Convo Mode"'
+  reason: Same production surface as the main generation endpoints — creation of two-host podcast audio
+    from a script. Content origination/production at L1; the narrower production stage is not clearly
+    named.
