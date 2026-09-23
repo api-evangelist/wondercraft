@@ -1,10 +1,7 @@
 {
   "provider": "wondercraft",
   "sources": [
-    "wondercraft-account-api-openapi.yml",
-    "wondercraft-audio-generation-api-openapi.yml",
-    "wondercraft-convo-mode-api-openapi.yml",
-    "wondercraft-jobs-api-openapi.yml"
+    "_original/wondercraft-openapi.yml"
   ],
   "outputs": [
     "wondercraft-account-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "wondercraft-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "wondercraft-openapi.yml: declared missing tag: Account",
+    "wondercraft-openapi.yml: declared missing tag: Audio Generation",
+    "wondercraft-openapi.yml: declared missing tag: Convo Mode",
+    "wondercraft-openapi.yml: declared missing tag: Jobs",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "wondercraft-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wondercraft-audio-generation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wondercraft-convo-mode-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "wondercraft-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

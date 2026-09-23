@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Wondercraft Public Account Jobs API
+  title: Wondercraft Public Jobs API
   description: 'The Wondercraft Public API creates audio content - podcasts, audio ads, meditations, and audiobooks - from an AI-generated or user-supplied script. Generation is asynchronous: a create request returns a job_id, which is then polled for completion and an MP3 download URL. Voices and background music are referenced by IDs copied from the Wondercraft platform. API access requires a paid plan.'
   termsOfService: https://www.wondercraft.ai/terms
   contact:
@@ -58,6 +58,21 @@ paths:
                 type: object
 components:
   schemas:
+    ValidationError:
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      properties:
+        loc:
+          type: array
+          items:
+            type: string
+        msg:
+          type: string
+        type:
+          type: string
     GetEpisodeStatusResponse:
       type: object
       required:
@@ -78,21 +93,6 @@ components:
         error_details:
           type: string
           description: Details about the failure, when present.
-    ValidationError:
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      properties:
-        loc:
-          type: array
-          items:
-            type: string
-        msg:
-          type: string
-        type:
-          type: string
     HTTPValidationError:
       type: object
       properties:
