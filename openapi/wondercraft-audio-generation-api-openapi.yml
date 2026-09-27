@@ -72,18 +72,6 @@ paths:
           description: Too many concurrent jobs (limit is 5).
 components:
   schemas:
-    GenerateUserScriptedEpisodeRequest:
-      type: object
-      required:
-      - script
-      properties:
-        script:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScriptSegment'
-          description: Ordered list of script segments.
-        music_spec:
-          $ref: '#/components/schemas/MusicTrackSpec'
     MusicTrackSpec:
       type: object
       additionalProperties: false
@@ -119,30 +107,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
-    GenerateEpisodeResponse:
-      type: object
-      required:
-      - job_id
-      properties:
-        job_id:
-          type: string
-          format: uuid
-          description: Identifier used to poll job status.
-    GenerateAiScriptedEpisodeRequest:
-      type: object
-      required:
-      - prompt
-      properties:
-        prompt:
-          type: string
-          description: Natural-language description of the audio content to generate.
-        voice_ids:
-          type: array
-          items:
-            type: string
-          description: Optional Wondercraft voice IDs to use.
-        music_spec:
-          $ref: '#/components/schemas/MusicTrackSpec'
     ValidationError:
       type: object
       required:
@@ -158,6 +122,15 @@ components:
           type: string
         type:
           type: string
+    GenerateEpisodeResponse:
+      type: object
+      required:
+      - job_id
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          description: Identifier used to poll job status.
     ScriptSegment:
       type: object
       additionalProperties: false
@@ -171,6 +144,33 @@ components:
         voice_id:
           type: string
           description: A unique identifier for the voice, copied from the Wondercraft platform.
+    GenerateUserScriptedEpisodeRequest:
+      type: object
+      required:
+      - script
+      properties:
+        script:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScriptSegment'
+          description: Ordered list of script segments.
+        music_spec:
+          $ref: '#/components/schemas/MusicTrackSpec'
+    GenerateAiScriptedEpisodeRequest:
+      type: object
+      required:
+      - prompt
+      properties:
+        prompt:
+          type: string
+          description: Natural-language description of the audio content to generate.
+        voice_ids:
+          type: array
+          items:
+            type: string
+          description: Optional Wondercraft voice IDs to use.
+        music_spec:
+          $ref: '#/components/schemas/MusicTrackSpec'
   securitySchemes:
     APIKeyHeader:
       type: apiKey

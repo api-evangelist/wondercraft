@@ -72,26 +72,6 @@ paths:
           description: Too many concurrent jobs (limit is 5).
 components:
   schemas:
-    GenerateAiScriptedConvoModeEpisodeRequest:
-      type: object
-      required:
-      - prompt
-      properties:
-        prompt:
-          type: string
-          description: Natural-language description of the conversation to generate.
-        voice_ids:
-          type: array
-          items:
-            type: string
-          minItems: 2
-          maxItems: 2
-          description: Exactly two Wondercraft voice IDs, one per host.
-        delivery_instructions:
-          type: string
-          description: Optional guidance on tone and delivery.
-        music_spec:
-          $ref: '#/components/schemas/MusicTrackSpec'
     MusicTrackSpec:
       type: object
       additionalProperties: false
@@ -127,15 +107,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
-    GenerateEpisodeResponse:
+    GenerateAiScriptedConvoModeEpisodeRequest:
       type: object
       required:
-      - job_id
+      - prompt
       properties:
-        job_id:
+        prompt:
           type: string
-          format: uuid
-          description: Identifier used to poll job status.
+          description: Natural-language description of the conversation to generate.
+        voice_ids:
+          type: array
+          items:
+            type: string
+          minItems: 2
+          maxItems: 2
+          description: Exactly two Wondercraft voice IDs, one per host.
+        delivery_instructions:
+          type: string
+          description: Optional guidance on tone and delivery.
+        music_spec:
+          $ref: '#/components/schemas/MusicTrackSpec'
     ValidationError:
       type: object
       required:
@@ -164,6 +155,15 @@ components:
         voice_id:
           type: string
           description: A unique identifier for the voice, copied from the Wondercraft platform.
+    GenerateEpisodeResponse:
+      type: object
+      required:
+      - job_id
+      properties:
+        job_id:
+          type: string
+          format: uuid
+          description: Identifier used to poll job status.
     GenerateUserScriptedConvoModeEpisodeRequest:
       type: object
       required:

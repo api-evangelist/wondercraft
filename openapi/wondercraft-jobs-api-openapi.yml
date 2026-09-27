@@ -73,6 +73,13 @@ components:
           type: string
         type:
           type: string
+    HTTPValidationError:
+      type: object
+      properties:
+        detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
     GetEpisodeStatusResponse:
       type: object
       required:
@@ -93,13 +100,6 @@ components:
         error_details:
           type: string
           description: Details about the failure, when present.
-    HTTPValidationError:
-      type: object
-      properties:
-        detail:
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
   securitySchemes:
     APIKeyHeader:
       type: apiKey
