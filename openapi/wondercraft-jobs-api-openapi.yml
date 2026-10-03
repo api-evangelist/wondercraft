@@ -58,6 +58,26 @@ paths:
                 type: object
 components:
   schemas:
+    GetEpisodeStatusResponse:
+      type: object
+      required:
+      - finished
+      properties:
+        finished:
+          type: boolean
+          description: Whether the job has completed.
+        script:
+          type: string
+          description: The generated script, when available.
+        url:
+          type: string
+          description: Download URL for the finished MP3, when available.
+        error:
+          type: boolean
+          description: Whether the job failed.
+        error_details:
+          type: string
+          description: Details about the failure, when present.
     ValidationError:
       type: object
       required:
@@ -80,26 +100,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ValidationError'
-    GetEpisodeStatusResponse:
-      type: object
-      required:
-      - finished
-      properties:
-        finished:
-          type: boolean
-          description: Whether the job has completed.
-        script:
-          type: string
-          description: The generated script, when available.
-        url:
-          type: string
-          description: Download URL for the finished MP3, when available.
-        error:
-          type: boolean
-          description: Whether the job failed.
-        error_details:
-          type: string
-          description: Details about the failure, when present.
   securitySchemes:
     APIKeyHeader:
       type: apiKey
