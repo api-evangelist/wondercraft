@@ -157,6 +157,8 @@ apis:
   - type: APIReference
     url: https://docs.wondercraft.ai/api-reference/endpoint/get_job_status
 common:
+- type: Pricing
+  url: https://www.wondercraft.ai/pricing
 - type: CapabilityMap
   url: capabilities/wondercraft-capability-edges.yml
   name: Wondercraft Business Capability Map
