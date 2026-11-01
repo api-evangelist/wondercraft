@@ -1,4 +1,4 @@
-# Wondercraft (wondercraft)
+# Wondercraft
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,119 +66,122 @@
 
 Wondercraft is an AI audio creation platform for producing podcasts, audio ads, meditations, and audiobooks. Its public REST API generates audio content from an AI-written or user-supplied script, supports a two-host Convo Mode, lets callers attach platform voices and background music by ID, and exposes asynchronous jobs that are polled for status and a finished MP3 download URL.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/wondercraft/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/wondercraft/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Audio · Podcasts · Text-to-Speech · Generative Audio
 
-## Tags
+## Wondercraft on APIs.io
 
-- AI
-- Audio
-- Podcast
-- Text to Speech
-- Generative Audio
+Everything profiled for Wondercraft is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/wondercraft/](https://apis.io/providers/wondercraft/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Wondercraft Account API](https://apis.io/apis/wondercraft/wondercraft-account-api/) — The Account API from Wondercraft — 1 operation(s) for account.
+- [Wondercraft Audio Generation API](https://apis.io/apis/wondercraft/wondercraft-audio-generation-api/) — The Audio Generation API from Wondercraft — 2 operation(s) for audio generation.
+- [Wondercraft Convo Mode API](https://apis.io/apis/wondercraft/wondercraft-convo-mode-api/) — The Convo Mode API from Wondercraft — 2 operation(s) for convo mode.
+- [Wondercraft Jobs API](https://apis.io/apis/wondercraft/wondercraft-jobs-api/) — The Jobs API from Wondercraft — 2 operation(s) for jobs.
 
-## APIs
+### Published properties
 
-### Wondercraft Audio Generation API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Creates podcasts, audio ads, meditations, and audiobooks from a natural-language prompt using an AI-generated script. Optionally accepts platform voice IDs and a background music spec, and returns an asynchronous job_id.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.wondercraft.ai/api-reference/introduction](https://docs.wondercraft.ai/api-reference/introduction)
-- **Base URL:** `https://api.wondercraft.ai/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Wondercraft Agentic Access](https://apis.io/agentic-access/wondercraft/wondercraft-agentic-access/)
 
-- Audio
-- Podcast
-- Text to Speech
-- Jobs
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.wondercraft.ai/quickstart)
-- [API Reference](https://docs.wondercraft.ai/api-reference/endpoint/generate_podcast)
-- [OpenAPI](openapi/wondercraft-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wondercraft.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wondercraft.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Wondercraft Public API](https://apis.io/collections/wondercraft/open-wondercraft/)
+- [Wondercraft Public Account API](https://apis.io/collections/wondercraft/open-wondercraft-account-api/)
+- [Wondercraft Public Account Audio Generation API](https://apis.io/collections/wondercraft/open-wondercraft-audio-generation-api/)
+- [Wondercraft Public Account Convo Mode API](https://apis.io/collections/wondercraft/open-wondercraft-convo-mode-api/)
+- [Wondercraft Public Account Jobs API](https://apis.io/collections/wondercraft/open-wondercraft-jobs-api/)
 
-### Wondercraft Scripted Audio API
+#### Security (2)
 
-Generates audio from a user-provided script of ordered segments, each pairing text with a Wondercraft voice ID, with an optional background music track spec referencing a platform music ID.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.wondercraft.ai/api-reference/endpoint/user_scripted](https://docs.wondercraft.ai/api-reference/endpoint/user_scripted)
-- **Base URL:** `https://api.wondercraft.ai/v1`
+- [Wondercraft Authentication](https://apis.io/security/wondercraft/wondercraft-authentication/)
+- [Wondercraft Domain Security](https://apis.io/security/wondercraft/wondercraft-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Audio
-- Script
-- Voices
-- Music
+Published plans, tiers and prices.
 
-#### Properties
+- [Wondercraft Plans Pricing](https://apis.io/plans/wondercraft/wondercraft-plans-pricing/)
 
-- [Documentation](https://docs.wondercraft.ai/quickstart)
-- [API Reference](https://docs.wondercraft.ai/api-reference/endpoint/user_scripted)
-- [OpenAPI](openapi/wondercraft-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wondercraft.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wondercraft.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Wondercraft Convo Mode API
+Published request limits.
 
-Generates two-host conversational podcasts from either an AI prompt or a user-provided script, taking exactly two voice IDs plus optional delivery instructions and a background music spec.
+- [Wondercraft Rate Limits](https://apis.io/rate-limits/wondercraft/wondercraft-rate-limits/)
 
-- **Human URL:** [https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted](https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted)
-- **Base URL:** `https://api.wondercraft.ai/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Audio
-- Podcast
-- Two Host
-- Conversation
+- [Wondercraft Finops](https://apis.io/finops/wondercraft/wondercraft-finops/)
 
-#### Properties
+## Where to find this API
 
-- [API Reference](https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_ai_scripted)
-- [API Reference](https://docs.wondercraft.ai/api-reference/endpoint/convo_mode_user_scripted)
-- [OpenAPI](openapi/wondercraft-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wondercraft.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wondercraft.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Wondercraft Job Status API
-
-Polls an audio generation job by job_id, returning whether it is finished, the generated script, the MP3 download URL, and any error details. Also lists a user's podcasts and verifies an API key.
-
-- **Human URL:** [https://docs.wondercraft.ai/api-reference/endpoint/get_job_status](https://docs.wondercraft.ai/api-reference/endpoint/get_job_status)
-- **Base URL:** `https://api.wondercraft.ai/v1`
-
-#### Tags
-
-- Jobs
-- Async
-- Status
-
-#### Properties
-
-- [API Reference](https://docs.wondercraft.ai/api-reference/endpoint/get_job_status)
-- [OpenAPI](openapi/wondercraft-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/wondercraft.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/wondercraft.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/wondercraftai)
 - [Website](https://www.wondercraft.ai)
 - [Documentation](https://docs.wondercraft.ai)
-- [Plans](plans/wondercraft-plans-pricing.yml)
-- [Rate Limits](rate-limits/wondercraft-rate-limits.yml)
-- [Fin Ops](finops/wondercraft-finops.yml)
+- [Pricing](https://www.wondercraft.ai/pricing)
+- [Blog](https://wondercraft.ai/blog)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.1** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 50.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 42.1 |
+
+**Agent readiness 25.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/wondercraft/](https://apis.io/providers/wondercraft/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Wondercraft: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/wondercraft/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
